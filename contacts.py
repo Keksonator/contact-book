@@ -1,13 +1,32 @@
 import json
 from json import JSONDecodeError
 
+from models import Contact
+
 CONTACT_JSON = 'contacts_json.json'
 
+test_contact = Contact('1', 'Ro', "201931123", 'AKLJWEawkj')
+print(test_contact)
+
+class SimpleID:
+    def __init__(self):
+        self.current = 0
+
+    def next(self):
+        self.current += 1
+        return self.current
+
+
+# Глобальный генератор ID
+id_generator = SimpleID()
 
 def try_read_json(file_json):
     try:
         with open(file_json, 'r', encoding='utf-8') as file:
             data = json.load(file)
+            if data and 'contacts' in data and data['contacts']:
+                max_id = max(contact['id'] for contact in data['contacts'])
+                id_generator.current = max_id
             return data
     except FileNotFoundError:
         print("Файл не найден")
@@ -36,7 +55,9 @@ def add_contact(contacts):
     contact_name = input("Введите имя:")
     contact_phone = input("Введите телефон:")
     contact_email = input("Введите email:")
-    new_id = len(contacts['contacts']) + 1 if contacts else 1
+
+    new_id = id_generator.next()
+
     if contacts:
         contacts['contacts'].append(
             {
