@@ -1,12 +1,10 @@
 import json
 from json import JSONDecodeError
-
+from repositories import ContactRepository
 from models import Contact
 
 CONTACT_JSON = 'contacts_json.json'
 
-test_contact = Contact('1', 'Ro', "201931123", 'AKLJWEawkj')
-print(test_contact)
 
 class SimpleID:
     def __init__(self):
