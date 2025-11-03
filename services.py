@@ -40,6 +40,17 @@ class ContactService:
         else:
             return []
 
+    def search_contacts_by_id(self, user_id: int) -> Contact|None:
+        contacts = self.repository.get_all()
+
+        if contacts:
+            for contact in contacts:
+                if user_id == contact.id:
+                    return contact
+            return None
+        else:
+            return None
+
     def delete_contact(self, contact_id: int):
         contacts = self.repository.get_all()
 

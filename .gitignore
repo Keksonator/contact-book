@@ -18,10 +18,11 @@ build/
 # Database
 *.db
 *.sqlite3
+*.json
 
 # Logs
 *.log
 
 # OS
 .DS_Store
-Thumbs.db
+Thumbs.dbcontacts_json.json
