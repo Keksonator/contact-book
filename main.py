@@ -1,8 +1,7 @@
-from models import Contact
-from repositories import ContactRepository
-from services import ContactService
+from src.repositories.contact_repository import ContactRepository
+from src.services.contact_service import ContactService
 
-CONTACT_JSON = 'contacts_json.json'
+CONTACT_JSON = 'data/contacts_json.json'
 repository = ContactRepository(CONTACT_JSON)
 service = ContactService(repository)
 

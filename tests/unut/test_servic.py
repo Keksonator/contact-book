@@ -1,6 +1,5 @@
-from models import Contact
-from repositories import ContactRepository
-from services import ContactService  # новый импорт!
+from src.repositories.contact_repository import ContactRepository
+from src.services.contact_service import ContactService  # новый импорт!
 
 
 def test_service():

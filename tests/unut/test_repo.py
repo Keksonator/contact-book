@@ -1,5 +1,5 @@
-from repositories import ContactRepository
-from models import Contact
+from src.repositories.contact_repository import ContactRepository
+from src.models.contact import Contact
 
 def test_repository():
     print("=== ТЕСТ БИБЛИОТЕКАРЯ ===")

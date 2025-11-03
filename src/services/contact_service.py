@@ -1,5 +1,5 @@
-from models import Contact
-from repositories import ContactRepository
+from src.models.contact import Contact
+from src.repositories.contact_repository import ContactRepository
 
 
 class ContactService:

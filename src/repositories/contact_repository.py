@@ -1,6 +1,6 @@
 import json
 
-from models import Contact
+from src.models.contact import Contact
 
 
 class ContactRepository:
